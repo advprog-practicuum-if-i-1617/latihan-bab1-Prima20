@@ -30,8 +30,9 @@ public class BelPac {
         {"#"," "," ","#","#"," "," "," "," ","#"},
         {"#","#","#","#","#","#","#","#","#","#"}};
         Pacman game = new Pacman();
-        game.x= 1;
-        game.y = 1;
+        int b, k;
+        b = game.x= 1;
+        k = game.y = 1;
         
         boolean t = true;
         game.step = 20;
@@ -50,17 +51,25 @@ public class BelPac {
         if(a == 'q'){
             t = false;
         }
-        array[game.x][game.y] = " "; 
+        
         game.move(a);
         if(array[game.x][game.y] == " "){
+            array[b][k] = " "; 
+            b = game.x;
+            k = game.y;
             array[game.x][game.y] = game.objek;
         }
         else if(array[game.x][game.y] == "@"){
+            array[b][k] = " "; 
+            b = game.x;
+            k = game.y;
              array[game.x][game.y] = game.objek;
              game.makan();
         }
         else if(array[game.x][game.y] == "#"){
-            array[game.x][game.y] = "#";
+            game.undoAct(a);
+            array[game.x][game.y] = game.objek;
+                    
         }
         if(game.step == 0 && game.score!=5){
             for(int i=0; i<10; i++){

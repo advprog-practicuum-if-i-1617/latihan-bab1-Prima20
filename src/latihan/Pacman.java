@@ -39,6 +39,28 @@ public class Pacman {
             objek = ">";
         }
     }
+    public void undoAct(char c){
+        if(c == 'w'){
+            x +=1;
+            y += 0;
+            objek = "v";
+        }
+        if(c == 's'){
+            x -=1;
+            y += 0;
+            objek = "^";
+        }
+        if(c == 'd'){
+            y -=1;
+            x +=0;
+            objek = "<";
+        }
+        if(c == 'a'){
+            y +=1;
+            x +=0;
+            objek = ">";
+        }
+    }
     public void makan(){
         score += 1;
     }
